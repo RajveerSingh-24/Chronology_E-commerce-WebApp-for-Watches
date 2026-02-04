@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Checkout | Chronology</title>
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+html, body{
+    background:#0b0b0b;
+    margin:0;
+    padding:0;
+}
+
+body{
+    background:#0b0b0b;
+    font-family: Arial, sans-serif;
+}
+
+/* MAIN CONTAINER */
+.checkout-container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* CARD */
+.checkout-card{
+    width:90%;
+    max-width:1000px;
+    background:#111;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 0 30px rgba(207,163,73,0.15);
+}
+
+/* TITLE */
+.checkout-title{
+    text-align:center;
+    color:#cfa349;
+    margin-bottom:30px;
+    font-size:28px;
+}
+
+/* GRID */
+.checkout-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:30px;
+}
+
+/* FORM */
+.checkout-form label{
+    display:block;
+    color:#ccc;
+    margin-bottom:5px;
+}
+
+.checkout-form input{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    background:#1a1a1a;
+    border:none;
+    border-radius:6px;
+    color:white;
+}
+
+/* SUMMARY */
+.order-summary{
+    background:#1a1a1a;
+    padding:25px;
+    border-radius:10px;
+}
+
+.order-summary h3{
+    color:#cfa349;
+    margin-bottom:15px;
+}
+
+.summary-item{
+    display:flex;
+    justify-content:space-between;
+    color:#ccc;
+    margin-bottom:10px;
+}
+
+.summary-total{
+    border-top:1px solid #333;
+    padding-top:10px;
+    font-size:18px;
+    color:white;
+}
+
+/* BUTTON */
+.checkout-btn{
+    width:100%;
+    padding:14px;
+    background:linear-gradient(135deg,#cfa349,#b8902f);
+    border:none;
+    border-radius:8px;
+    color:black;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.checkout-btn:hover{
+    opacity:0.9;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="checkout-container">
+
+<div class="checkout-card">
+
+<h2 class="checkout-title">Secure Checkout</h2>
+
+<div class="checkout-grid">
+
+<!-- LEFT FORM -->
+<form method="POST" class="checkout-form">
+{% csrf_token %}
+
+<label>Full Name</label>
+<input type="text" name="name" required>
+
+<label>Email</label>
+<input type="email" name="email" required>
+
+<label>Address</label>
+<input type="text" name="address" required>
+
+<label>City</label>
+<input type="text" name="city" required>
+
+<label>Phone</label>
+<input type="text" name="phone" required>
+
+<button type="submit" class="checkout-btn">
+Place Order
+</button>
+
+</form>
+
+<!-- RIGHT SUMMARY -->
+<div class="order-summary">
+
+<h3>Your Order</h3>
+
+{% for item in cart_items %}
+<div class="summary-item">
+    <span>{{ item.product.name }}</span>
+    <span>₹{{ item.total_price }}</span>
+</div>
+{% endfor %}
+
+<div class="summary-item summary-total">
+    <span>Total</span>
+    <span>₹{{ cart_total }}</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

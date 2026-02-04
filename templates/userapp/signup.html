@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<div class="login-bg">
+
+    <div class="login-card-landscape">
+
+        <!-- LEFT: Image -->
+        <div class="card-left">
+            <img src="{% static 'images/p4.jpg' %}" alt="Watch">
+        </div>
+
+        <!-- RIGHT: Form -->
+        <div class="card-right">
+            <h2>Sign Up</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+
+                <button type="submit">Sign Up</button>
+            </form>
+
+            <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

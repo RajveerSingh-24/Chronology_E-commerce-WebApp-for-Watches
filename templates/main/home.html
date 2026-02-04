@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<link rel="icon" type="image/x-icon" href="{% static 'images/f.png' %}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chronology</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+    <div class="logo">
+        <i class="fa-solid fa-watch"></i> Chronology
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Collections</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+
+    </ul>
+
+    <div class="nav-icons">
+        {% if user.is_authenticated %}
+    <a href="#">
+        <i class="fa-regular fa-user"></i> {{ user.username }}
+    </a>
+
+    <a href="{% url 'logout' %}">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </a>
+{% else %}
+    <a href="{% url 'login' %}">
+        <i class="fa-regular fa-user"></i> Login
+    </a>
+{% endif %}
+
+
+
+        <a href="#"><i class="fa-solid fa-bag-shopping"></i> Cart</a>
+    </div>
+
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="overlay"></div>
+
+    <div class="hero-text">
+        <h1>Built For Every Second.</h1>
+        <p>Premium watches crafted for precision and durability.</p>
+        <button>Shop Now</button>
+    </div>
+</section>
+
+<br><br>
+
+<!-- FEATURES -->
+<section class="features">
+
+    <div class="feature-box">
+        <i class="fa-solid fa-droplet"></i> Water Resistant
+    </div>
+
+    <div class="feature-box">
+        <i class="fa-regular fa-gem"></i> Sapphire Crystal
+    </div>
+
+    <div class="feature-box">
+        <i class="fa-solid fa-gears"></i> Swiss Movement
+    </div>
+
+    <div class="feature-box">
+        <i class="fa-solid fa-crown"></i> Premium Quality
+    </div>
+
+</section>
+
+<!-- PRODUCTS -->
+<section class="products">
+    <h2>Featured Watches</h2>
+
+    <div class="product-grid">
+
+        {% for product in products %}
+        <div class="product-card">
+            <a href="{% url 'product_detail' product.id %}">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                <h3>{{ product.name }}</h3>
+                <p>₹{{ product.price }}</p>
+            </a>
+        </div>
+        {% endfor %}
+
+    </div>
+</section>
+<!-- CONTACT SECTION -->
+<section class="home-contact">
+
+    <h2>Contact Us</h2>
+    <p class="contact-sub">Have questions? We'd love to hear from you.</p>
+
+    <div class="contact-grid">
+
+        <div class="contact-box">
+            <h3>Visit Us</h3>
+            <p>Jalandhar, Punjab, India</p>
+        </div>
+
+        <div class="contact-box">
+            <h3>Call</h3>
+            <p>+91 98765 43210</p>
+        </div>
+
+        <div class="contact-box">
+            <h3>Email</h3>
+            <p>support@chronology.com</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Chronology. All Rights Reserved.</p>
+</footer>
+
+<!-- HERO ANIMATION -->
+<script>
+    window.addEventListener('load', () => {
+        document.querySelector('.hero').classList.add('zoom');
+    });
+</script>
+
+</body>
+</html>

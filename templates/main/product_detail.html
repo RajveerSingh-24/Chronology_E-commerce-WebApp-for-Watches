@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ product.name }}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">WATCH.</div>
+
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Collections</a></li>
+    </ul>
+
+    <div class="nav-icons">
+        <a href="#">Login</a>
+        <a href="#">Cart</a>
+    </div>
+
+</nav>
+
+
+<section class="product-detail">
+
+    <div class="detail-image">
+        <img src="{{ product.image.url }}">
+    </div>
+
+    <div class="detail-info">
+        <h1>{{ product.name }}</h1>
+        <p>{{ product.description }}</p>
+        <h2>₹{{ product.price }}</h2>
+
+        <a href="{% url 'add_to_cart' product.id %}">
+    <button>Add To Cart</button>
+</a>
+
+    </div>
+
+</section>
+
+</body>
+</html>

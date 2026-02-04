@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<div class="cart-container">
+
+<h1 class="cart-title">Your Cart</h1>
+
+{% for item in cart_items %}
+
+<div class="cart-item">
+
+    <div class="cart-left">
+        <img src="{{ item.product.image.url }}">
+        <div>
+            <h3>{{ item.product.name }}</h3>
+
+            <div class="qty-box">
+                <a href="{% url 'update_cart' item.product.id 'decrease' %}">−</a>
+                <span>{{ item.quantity }}</span>
+                <a href="{% url 'update_cart' item.product.id 'increase' %}">+</a>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <p>₹{{ item.subtotal }}</p>
+        <a href="{% url 'remove_from_cart' item.product.id %}">
+            <button>Remove</button>
+        </a>
+    </div>
+
+</div>
+
+
+{% empty %}
+<p>Your cart is empty.</p>
+{% endfor %}
+
+<div class="cart-summary">
+    <h2>Total: ₹{{ total }}</h2>
+
+    <a href="{% url 'checkout' %}">
+        <button class="checkout-btn">Proceed To Checkout</button>
+    </a>
+</div>
+
+</div>
+
+</body>
+</html>
