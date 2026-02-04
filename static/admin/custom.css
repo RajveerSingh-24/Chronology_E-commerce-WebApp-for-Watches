@@ -1,0 +1,69 @@
+/* ===== GLOBAL ===== */
+body {
+    background: radial-gradient(circle at top, #1a1a1a, #000000);
+    color: #eaeaea;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* ===== HEADER ===== */
+#header {
+    background: linear-gradient(90deg, #0b0b0b, #1c1c1c);
+    border-bottom: 2px solid #cfa349;
+}
+
+#site-name {
+    font-size: 26px;
+    font-weight: 600;
+    color: #cfa349 !important;
+}
+
+/* ===== LINKS ===== */
+a {
+    color: #cfa349;
+}
+
+a:hover {
+    color: #ffd87d;
+}
+
+/* ===== MODULE HEADERS ===== */
+.module h2,
+.module caption {
+    background: linear-gradient(90deg, #cfa349, #b8902f);
+    color: #000;
+    font-weight: bold;
+}
+
+/* ===== MODULE BOX ===== */
+.module {
+    background: #111;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(207,163,73,0.08);
+}
+
+/* ===== BUTTONS ===== */
+button,
+input[type="submit"],
+input[type="button"] {
+    background: linear-gradient(135deg, #cfa349, #b8902f) !important;
+    color: #000 !important;
+    border-radius: 8px;
+    border: none;
+    padding: 6px 14px;
+    font-weight: bold;
+}
+
+/* ===== RECENT ACTIONS ===== */
+#recent-actions-module {
+    background: #111;
+    border-radius: 10px;
+}
+
+/* ===== TABLE ROWS ===== */
+.row1, .row2 {
+    background: #0f0f0f;
+}
+
+.row1:hover, .row2:hover {
+    background: #1a1a1a;
+}
