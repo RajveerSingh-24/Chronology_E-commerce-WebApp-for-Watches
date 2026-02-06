@@ -100,15 +100,18 @@ body{
 /* BUTTON */
 .checkout-btn{
     width:100%;
-    padding:14px;
+    padding:12px;
+    margin-top:10px;
     background:linear-gradient(135deg,#cfa349,#b8902f);
     border:none;
-    border-radius:8px;
+    border-radius:6px;
     color:black;
     font-size:16px;
     font-weight:bold;
     cursor:pointer;
+    margin-right: 60px;
 }
+
 
 .checkout-btn:hover{
     opacity:0.9;
@@ -160,15 +163,16 @@ Place Order
 
 {% for item in cart_items %}
 <div class="summary-item">
-    <span>{{ item.product.name }}</span>
-    <span>₹{{ item.total_price }}</span>
+    <span>{{ item.product.name }} (x{{ item.quantity }})</span>
+    <span>₹{{ item.subtotal }}</span>
 </div>
 {% endfor %}
 
 <div class="summary-item summary-total">
     <span>Total</span>
-    <span>₹{{ cart_total }}</span>
+    <span>₹{{ total }}</span>
 </div>
+
 
 </div>
 
