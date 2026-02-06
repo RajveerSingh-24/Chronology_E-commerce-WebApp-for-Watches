@@ -101,7 +101,7 @@ body{
     color:#ccc;
 }
 
-.hero-text button {
+.hero-text a {
     padding: 14px 40px;
     background: transparent;        /* transparent background */
     color: white;                   /* white text */
@@ -110,10 +110,11 @@ body{
     cursor: pointer;
     border-radius: 25px;            /* rounded corners */
     box-shadow: 0 4px 15px rgba(255,255,255,0.2);  /* subtle glow */
-    transition: all 0.3s ease;      /* smooth hover animation */
+    transition: all 0.3s ease;     
+    text-decoration: none; /* smooth hover animation */
 }
 
-.hero-text button:hover {
+.hero-text a:hover {
     background: white;              /* white background on hover */
     color: black;                   /* text becomes black */
     transform: scale(1.05);         /* subtle zoom effect */
