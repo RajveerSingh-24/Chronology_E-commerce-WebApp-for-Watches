@@ -26,7 +26,7 @@
 
     <ul class="nav-links">
         <li><a href="#">Home</a></li>
-        <li><a href="#">Collections</a></li>
+        <li><a href="#collection">Collections</a></li>
         <li><a href="{% url 'contact' %}">Contact</a></li>
 
     </ul>
@@ -59,8 +59,9 @@
 
     <div class="hero-text">
         <h1>Built For Every Second.</h1>
-        <p>Premium watches crafted for precision and durability.</p>
-        <button>Shop Now</button>
+        <p>Premium watches crafted for precision and durability.</p><br>
+        <a href="/#collection" class="btn">Shop Now</a>
+
     </div>
 </section>
 
@@ -88,7 +89,7 @@
 </section>
 
 <!-- PRODUCTS -->
-<section class="products">
+<section id="collection" class="products">
     <h2>Featured Watches</h2>
 
     <div class="product-grid">
