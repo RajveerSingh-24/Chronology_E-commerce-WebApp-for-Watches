@@ -31,20 +31,6 @@ This project is built as a portfolio project to demonstrate full-stack web devel
 
 ---
 
-## 📂 Project Structure
-
-├── project/
-├── main/
-├── userapp/
-├── adminapp/
-├── templates/
-├── static/
-├── manage.py
-└── requirements.txt
-
-
----
-
 ## ⚙️ How To Run This Project Locally
 
 ### 1️⃣ Clone Repository
